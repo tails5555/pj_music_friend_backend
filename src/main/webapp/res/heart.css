@@ -1,0 +1,23 @@
+
+.toggle-heart {
+  position: absolute;
+  left: -100vw;
+}
+[for='toggle-heart'] {
+  color: #aab8c2;
+}
+
+.toggle-heart:checked + label {
+  color: #e2264d;
+}
+.toggle-heart-label{
+  font-size: 2em;
+  cursor: pointer;
+}
+
+@keyframes heart { 0%, 17.5% { font-size: 0; } }
+
+.toggle-heart:checked + label {
+  will-change: font-size;
+  animation: heart 1s cubic-bezier(.17, .89, .32, 1.49);
+}
