@@ -1,5 +1,6 @@
 package net.kang.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,16 +11,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.kang.domain.Music;
-import net.kang.repository.MusicRepository;
+import net.kang.getModel.GuestMusicTableRow;
+import net.kang.service.MusicService;
 @RestController
 @CrossOrigin
 @RequestMapping("/guest")
 public class GuestRestController {
-	@Autowired MusicRepository musicRepository;
+	@Autowired MusicService musicService;
 
 	@GetMapping("/music/findAll")
-	public ResponseEntity<List<Music>> findAll(){
-		return new ResponseEntity<List<Music>>(musicRepository.findAll(), HttpStatus.OK);
+	public ResponseEntity<List<GuestMusicTableRow>> findAll(){
+		List<GuestMusicTableRow> musicList=musicService.getGuestMusicTableRow();
+		if(musicList.size()>0)
+			return new ResponseEntity<List<GuestMusicTableRow>>(musicList, HttpStatus.OK);
+		else
+			return new ResponseEntity<List<GuestMusicTableRow>>(new ArrayList<GuestMusicTableRow>(), HttpStatus.NO_CONTENT);
 	}
 }
