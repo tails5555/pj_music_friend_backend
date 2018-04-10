@@ -7,5 +7,4 @@ import net.kang.domain.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 	Optional<User> findByUserId(String userId);
 
-	User findOneByLoginId(String loginId);
 }

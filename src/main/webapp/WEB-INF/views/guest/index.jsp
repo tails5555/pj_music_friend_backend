@@ -37,7 +37,7 @@
                     <div class="menu" style="">
 
                         <div class="col-md-2" style="padding-left: 200px; padding-top:30px;  ">
-                          <a href="${R}music/main"><img src="${R}img/title.PNG"/></a>
+                          <a href="${R}music/main"><img src="/pj_music_friend_backend/resources/img/title.PNG" /></a>
                        </div>
                         
                         <center>
