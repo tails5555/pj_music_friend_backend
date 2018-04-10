@@ -59,4 +59,11 @@ public class MusicService {
 		}
 		return row;
 	}
+
+	public List<Music> findAll(){
+		return musicRepository.findAll();
+
+	}
+
+
 }
