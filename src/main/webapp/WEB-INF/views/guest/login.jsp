@@ -37,10 +37,10 @@
                         <center>
                             <ul class="col-md-6" style="padding-top: 50px;">
 
-                                 <li><a href="${R}music/main">Home</a></li>
+                                 <li><a href="${R}guest/index">Home</a></li>
                                 <li><a href="${R}music/list">My ❤ </a></li>
                                 <li><a href="${R}music/friendList">친구 관리</a></li>
-                                <li><a href="${R}music/login">Login</a></li>
+                                <li><a href="${R}guest/login">Login</a></li>
 
                             </ul>
                         </center>
@@ -53,7 +53,7 @@
                     <div class="header">
                         <center>
 
-                            <a href="${R}music/main"> <div class="title" > Music Friend </div> </a>
+                            <a href="${R}guest/index"> <div class="title" > Music Friend </div> </a>
 
                         </center>
                     </div>
@@ -88,7 +88,7 @@
 					
 					                            <hr style="border: solid 1px" align="center" width="400" />
 					    <div align="center" style="">
-					        <a href="search_password.html">비밀번호 찾기</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="sign.html">회원가입</a>
+					        <a href="search_password.html">비밀번호 찾기</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="${R}guest/sign">회원가입</a>
 					        <br>
 					        <br>
 					    </div>

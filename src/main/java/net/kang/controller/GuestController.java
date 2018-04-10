@@ -27,6 +27,11 @@ public class GuestController {
         return "guest/login";
     }
 
+    @RequestMapping("guest/sign")
+    public String sign() {
+        return "guest/sign";
+    }
+
 
 
 }

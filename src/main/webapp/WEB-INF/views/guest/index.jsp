@@ -34,24 +34,29 @@
 
 
                     <!-- 1번 프레임 시작  -->
-                    <div class="menu" style="">
+                    <div class="menu" style="textalr">
+                    
+                      <div class="row">
+                            <div class="col-md-2"></div>
 
                         <div class="col-md-2" style="padding-left: 200px; padding-top:30px;  ">
-                          <a href="${R}music/main"><img src="/pj_music_friend_backend/resources/img/title.PNG" /></a>
+                          <a href="${R}guest/index"><img src="/pj_music_friend_backend/resources/img/title.PNG" /></a>
                        </div>
                         
                         <center>
 
                           <ul class="col-md-6" style="padding-top: 50px;">
 
-                                 <li><a href="${R}music/main">Home</a></li>
+                                    <li><a href="${R}guest/index">Home</a></li>
                                 <li><a href="${R}music/list">My ❤ </a></li>
                                 <li><a href="${R}music/friendList">친구 관리</a></li>
-                                <li><a href="${R}music/login">Login</a></li>
+                                <li><a href="${R}guest/login">Login</a></li>
+
 
                             </ul>
 
                         </center>
+                        </div>
                     </div>
 
                     <!-- 1번 프레임 끝  -->
@@ -70,7 +75,7 @@
 
                     <!-- 3번 프레임 시작  -->
 
-                    <div class="container" >
+                    <div class="container" style="height: 600px" >
 
                         <center>
 
