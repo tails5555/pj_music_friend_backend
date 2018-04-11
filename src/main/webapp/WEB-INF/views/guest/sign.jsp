@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <c:url var="R" value="/" />
@@ -64,17 +66,16 @@
                     <!-- 3번 프레임 시작  -->
 
                         <div class="container" style="width: 600px;" >
-                    <h2 style="padding-right: 270px; padding-bottom: 10px;     color: #0c0c0c;
-    font-family: roboto,arial,sans-serif; text-align: left;"><strong>회원 가입</strong></h2>
+                    	<h2 style="padding-right: 270px; padding-bottom: 10px;     color: #0c0c0c; font-family: roboto,arial,sans-serif; text-align: left;"><strong>회원 가입</strong></h2>
 
-                <hr style="border: solid 1px black;" />
+                		<hr style="border: solid 1px black;" />
                         <center>
 
                             <!--4번 프레임 시작-->
 
 
             
-					                <form class="form-inline">
+					                <form:form method="post" modelAttribute="userForm">
 					                      <div class="application" style="text-align: left;" >
 					
 					
@@ -82,7 +83,7 @@
 					                            <div class="control-group">
 					                              <div class="form-group floating-label-form-group controls">
 					                                <label>이름: </label>
-					                                <input type="text" class="form-control" placeholder="이름" id="name" >
+					                                <form:input path="name" class="form-control" placeholder="이름 입력" />
 					                                <p class="help-block text-danger"></p>
 					                              </div>
 					                            </div>
@@ -93,7 +94,7 @@
 					                            <div class="control-group">
 					                              <div class="form-group floating-label-form-group controls">
 					                                <label>아이디: </label>
-					                                <input type="text" class="form-control" placeholder="학번" id="studentNumber" >
+					                                <form:input path="userId" class="form-control" placeholder="아이디 입력" />
 					                                <p class="help-block text-danger"></p>
 					                              </div>
 					                            </div>
@@ -105,7 +106,7 @@
 					                            <div class="control-group">
 					                              <div class="form-group floating-label-form-group controls">
 					                                <label>비밀번호:  </label>
-					                                <input type="password" class="form-control" placeholder="비밀번호" id="password" >
+					                                <form:input path="password1" class="form-control" placeholder="비밀번호 입력" />
 					                                <p class="help-block text-danger"></p>
 					                              </div>
 					                            </div>
@@ -116,7 +117,7 @@
 					                            <div class="control-group">
 					                              <div class="form-group floating-label-form-group controls">
 					                                <label>비밀번호 확인:  </label>
-					                                <input type="password" class="form-control" placeholder="비밀번호" id="password2" >
+					                                <form:input path="password2" class="form-control" placeholder="비밀번호 확인" />
 					                                <p class="help-block text-danger"></p>
 					                              </div>
 					                            </div>
@@ -130,21 +131,20 @@
 					
 					
 					
-					
 					      <div style="margin-top: 40px">
 					        <p><h3>회원가입을 신청하시려면 밑에 신청 버튼을 눌러 주세요.</h3></p>
 					
 					      <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-ok"> 신청</i></button>
-					      <a href="index.html"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-remove"> 취소</i></button></a>
+					      <a href="${R}guest/index"><button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-remove"> 취소</i></button></a>
 					      </div>
 					
-					    </form>
+				
 					
 
 
 
                     </div>
-
+				</form:form>
                 <!-- 3번 프레임 끝  -->
 
             </div>

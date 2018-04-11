@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import net.kang.domain.Music;
 import net.kang.service.MusicService;
+import net.kang.service.UserService;
 
 
 @Controller
 public class GuestController {
 	@Autowired MusicService musicService;
+	@Autowired UserService userService;
+
 
 	@RequestMapping({"/", "guest/index"})
     public String index(Model model) {
@@ -31,7 +34,6 @@ public class GuestController {
     public String sign() {
         return "guest/sign";
     }
-
 
 
 }

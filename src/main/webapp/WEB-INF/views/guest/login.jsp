@@ -67,39 +67,46 @@
                         <center>
 
 
-
-					                                <h2 style="padding-right: 270px; padding-bottom: 10px;     color: #0c0c0c;
-					    font-family: roboto,arial,sans-serif;">로그인</h2>
-					                        <center>
-					
-					                            <!--4번 프레임 시작-->
-					
-					                                    <div align="center" margin-bottom:10px;>
-					                            <input type="text" name="userid" placeholder="아이디 입력" style="width:350px; padding:5px; margin-bottom:5px" />
-					                        </div>
-					                        <div align="center">
-					                            <input type="password" name="password" placeholder="비밀번호 입력" style="width:350px; padding:5px;margin-bottom:5px" />
-					                        </div>
-					                        <div align="center">
-					                      <a href="mypage.html">
-					                            <button type="button" id="loginButton" class="btn btn-primary" style="width: 350px; padding:5px" >로그인</button> </a>
-					                        </div>
-					
-					
-					                            <hr style="border: solid 1px" align="center" width="400" />
-					    <div align="center" style="">
-					        <a href="search_password.html">비밀번호 찾기</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="${R}guest/sign">회원가입</a>
-					        <br>
-					        <br>
-					    </div>
-
-                            </div>
-                            <!--4번 프레임 끝-->
-
-
-                    </center>
-
-                    </div>
+	 				 <form method="post" action="login_processing">
+						                                <h2 style="padding-right: 270px; padding-bottom: 10px;     color: #0c0c0c;
+						    font-family: roboto,arial,sans-serif;">로그인</h2>
+						                        <center>
+						
+						                            <!--4번 프레임 시작-->
+						
+						                                    <div align="center" margin-bottom:10px;>
+						                            <input type="text" name="userid" placeholder="아이디 입력" style="width:350px; padding:5px; margin-bottom:5px" />
+						                        </div>
+						                        <div align="center">
+						                            <input type="password" name="password" placeholder="비밀번호 입력" style="width:350px; padding:5px;margin-bottom:5px" />
+						                        </div>
+						                        <div align="center">
+						                        
+						                        
+						            
+						                            <button type="submit" id="loginButton" class="btn btn-primary" style="width: 350px; padding:5px" >로그인</button> </a>
+						                        </div>   
+						                         </form>
+						         
+						                        
+				
+						
+						                            <hr style="border: solid 1px" align="center" width="400" />
+						    <div align="center" style="">
+						        <a href="search_password.html">비밀번호 찾기</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="${R}guest/create">회원가입</a>
+						        <br>
+						        <br>
+						    </div>
+	
+	                            </div>
+	                            <!--4번 프레임 끝-->
+	
+	
+	                    </center>
+	
+	                    </div>
+	                    
+	               
 
                 <!-- 3번 프레임 끝  -->
 
