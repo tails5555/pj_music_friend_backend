@@ -25,7 +25,6 @@ public class UserService {
         return user;
     }
 
-
     public void save(UserForm userForm) {
     	User newUser=new User();
     	newUser.setName(userForm.getName());

@@ -23,7 +23,6 @@
 <!-- 1번 프레임 시작  -->
 	<div class="menu" style="textalr">            
     	<div class="row">
-        	<div class="col-md-2"></div>
             <div class="col-md-2" style="padding-left: 200px; padding-top:30px;  ">
             	<a href="${R}guest/index"><img src="/pj_music_friend_backend/resources/img/title.PNG" /></a>
             </div>
@@ -35,14 +34,15 @@
                       <li><a href="${R}guest/login">Login</a></li>
                  </ul>
 			</div>
+			<div class="col-md-4"></div>
          </div>
      </div>
      <!-- 1번 프레임 끝  -->
 	 
-
      <!-- 2번 프레임 시작  -->
      <div class="header" style="padding-top: 10px;">
      	<div class="title text-center"> <strong>실시간 차트</strong></div>
+     	<hr/>
      </div>
      <!-- 2번 프레임 끝  -->
 
@@ -50,7 +50,7 @@
      <div class="container text-center" style="height: 600px" >
      <!--4번 프레임 시작-->
      	<div class="content">
-            <table class="table table-bordered">
+            <table class="table table-responsive">
             <thead>
             	<tr>
                 	<td>순위</td>
@@ -62,7 +62,7 @@
             </thead>
             <tbody>
 		        <c:forEach var="music" items="${ list }">
-		            <tr data-url="edit?id=${music.id}">
+		            <tr>
 		                <td>${ music.rank }</td>
 		                <td>${ music.rate }</td>
 		                <td>${ music.title }</td>
@@ -75,6 +75,7 @@
 		</div>
      <!--4번 프레임 끝-->
      </div>
+     <hr/>
      <!-- 3번 프레임 끝  -->
 </div>
 </body>
