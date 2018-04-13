@@ -22,6 +22,29 @@ public class MusicService {
 	@Autowired MusicRepository musicRepository;
 	@Autowired StandardDeviationRepository standardDeviationRepository;
 
+	public List<UserMusicTableRow> myPlayList(String userId){
+		User user = userRepository.findByUserId(userId).orElse(new User());
+		if(user.equals(new User())) return new ArrayList<UserMusicTableRow>();
+		StandardDeviation sd=standardDeviationRepository.findTopByOrderByLatestDateDesc();
+		List<Music> musicList=user.getPlayList();
+		List<UserMusicTableRow> row = new ArrayList<UserMusicTableRow>();
+		for(int k=0;k<musicList.size();k++) {
+			UserMusicTableRow newRow=new UserMusicTableRow();
+			Music music=musicList.get(k);
+			newRow.setId(music.getId());
+			if(user.getPlayList().contains(music)) {
+				newRow.setLiked(true);
+			}
+			newRow.setRank(k+1);
+			newRow.setRate((int)(music.getPopulate().getScore()-sd.getAverage()));
+			newRow.setSinger(music.getSinger());
+			newRow.setTitle(music.getTitle());
+			newRow.setAlbum(music.getAlbum());
+			row.add(newRow);
+		}
+		return row;
+	}
+
 	public List<GuestMusicTableRow> getGuestMusicTableRow(){
 		List<GuestMusicTableRow> row = new ArrayList<GuestMusicTableRow>();
 		List<Music> musicList=musicRepository.findByOrderByPopulateScoreDesc();

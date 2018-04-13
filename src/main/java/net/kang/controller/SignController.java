@@ -13,7 +13,7 @@ import net.kang.service.UserService;
 @Controller
 @RequestMapping("guest")
 public class SignController {
-	@Autowired 	UserService userService;
+	@Autowired UserService userService;
     @RequestMapping(value="create", method=RequestMethod.GET)
     public String create(Model model) {
     	model.addAttribute("userForm", new UserForm());

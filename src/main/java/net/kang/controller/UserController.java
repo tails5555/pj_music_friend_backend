@@ -19,7 +19,7 @@ public class UserController {
 	@Autowired MusicService musicService;
 	@Autowired LinkService linkService;
     @RequestMapping({"user/index", "music/main"})
-    public String index(Model model) {
+    public String index(Model model) { // 현재 즐겨찾기한 음악 목록을 포함해서 보여줌
     	Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
 		String userId=authentication.getName();
     	List<UserMusicTableRow> list = musicService.getUserMusicTableRow(userId);
@@ -27,7 +27,7 @@ public class UserController {
         return "user/index";
     }
 
-    @RequestMapping("user/like")
+    @RequestMapping("user/like") // 사용자가 음악 목록에서 즐겨찾기를 할 때 링킹 추가와 인기 점수 추가로 더해줌
     public String musicLike(Model model, @RequestParam("mId") int mId, @RequestParam("work") String work) {
     	Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
 		String userId=authentication.getName();

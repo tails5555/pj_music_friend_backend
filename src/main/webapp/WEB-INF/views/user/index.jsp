@@ -9,25 +9,16 @@
 <html>
 <head>
     <title>음악 친구 찾기 </title>
-    
-    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link type="text/css" rel="stylesheet" href="${R}res/main.css"/>
     <link type="text/css" rel="stylesheet" href="${R}res/heart.css"/>
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="${R}js/userMain.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	
-	
 </head>
-    <style>
-
-    </style>
-
 <body>
 <div class="frame">
 	<!-- 1번 프레임 시작  -->
@@ -64,6 +55,7 @@
             <thead>
             	<tr>
                 	<td>순위</td>
+                	<td>변화</td>
                     <td>제목 </td>
                     <td>가수 </td>
                     <td>앨범</td>
@@ -71,9 +63,10 @@
                 </tr>
             </thead>
             <tbody>
-	        	<c:forEach var="music" items="${ list }">
+	        	<c:forEach var="music" items="${ list }" varStatus="status">
 	          		<tr data-url="like?mId=${ music.id }&work=${ music.liked ? 'delete' : 'insert'}">
-			            <td>${ music.rank }</td>
+			            <td>${ status.count }</td>
+			            <td>${ music.rate }</td>
 			            <td>${ music.title}</td>
 			            <td>${ music.singer }</td>
 			            <td>${ music.album }</td>
