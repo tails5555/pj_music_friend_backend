@@ -131,39 +131,40 @@ public class LinkService {
 		Optional<User> tmUser = userRepository.findByUserId(userId);
         User user=tmUser.orElse(new User());
         if (user.equals(new User())) return new ArrayList<GraphEdge>();
-		List<User> userList = userRepository.findAll();
-		List<GraphEdge> graphEdgeList = new ArrayList<GraphEdge>();
-		List<Music> myMusic = user.getPlayList();
-		for(int k=0;k<userList.size();k++) {
-			for(int l=0;l<userList.size();l++) { // 단방향으로만 그리면 되니깐 l은 k보다 클 때에 추가만 해 주면 된다.
-				if(k!=l) {
-					if(userList.get(k).getId() == user.getId() && myMusic.size()>0) { // k가 현재 사용자와 같은 경우에. 그리고 현재 사용자의 음악이 0인 경우에는 그려봤자 무용지물이니 통과.
-						List<Music> anoMusic = userList.get(l).getPlayList(); // 나와 타인의 관계에서 음악을 가져옴.
-						if(userList.get(l).getId() != user.getId() && anoMusic.size()>0) { // l가 현재 사용자랑 다른 경우에만 적용을 함. 대신 타인도 노래가 있는지 확인 필수.
-							double jaccard = JaccardSimilarity.jaccardCalcular(myMusic, anoMusic);
-							anoMusic.removeAll(myMusic);
-							if(jaccard>0.0) {
-								if(anoMusic.size()>0)
-									graphEdgeList.add(new GraphEdge(user.getId(), userList.get(l).getId(), (int)(10 * jaccard), MakeLabel.makeLabel(anoMusic)));
-								else
-									graphEdgeList.add(new GraphEdge(user.getId(), userList.get(l).getId(), (int)(10 * jaccard), "본인이 포함되거나 같은 음악을 듣습니다."));
-							}
-						}
-					}else{ // 타인1과 타인2이 음악을 가지고 있는 경우
-						List<Music> ano01Music = userList.get(k).getPlayList();
-						if(userList.get(l).getId() != user.getId() && ano01Music.size()>0) { // 타인1이 음악을 가지고 있는 경우에만 선을 형성.
-							List<Music> ano02Music = userList.get(l).getPlayList();
-							if(ano02Music.size()>0) { // 타인2의 음악의 크기가 0보다 큰 경우에만 해당 시킨다.
-								double jaccard = JaccardSimilarity.jaccardCalcular(ano01Music, ano02Music);
-								ano01Music.addAll(myMusic);
-								ano02Music.removeAll(ano01Music); // 타인이 현재 사용자 이외에 듣는 음악 목록들을 가져오되 내 음악도 비어서 추가를 해도 큰 상관은 없다.
-								if(jaccard>0.0) {
-									if(ano02Music.size()>0)
-										graphEdgeList.add(new GraphEdge(userList.get(k).getId(), userList.get(l).getId(), (int)(10 * jaccard), MakeLabel.makeLabel(ano02Music)));
-									else
-										graphEdgeList.add(new GraphEdge(userList.get(k).getId(), userList.get(l).getId(), (int)(10 * jaccard), "타인끼리 포함되거나 같은 음악을 듣습니다."));
-								}
-							}
+		List<User> anotherUserList = userRepository.findAll();
+		anotherUserList.remove(user); // 그래프는 사용자를 시점을 통해 그려지기 때문에 사용자를 일단 빼도록 한다.
+		List<GraphEdge> graphEdgeList = new ArrayList<GraphEdge>(); // 그래프 간선 저장
+		List<Music> myPlayList = user.getPlayList(); // 본인의 음악 목록 설정
+		if(anotherUserList.size()>1) { // 관계는 1명 이상이 있을 때 형성이 된다.
+			// 1단계. 본인과 타인들을 통한 연결을 매칭시킨다.
+			for(User au : anotherUserList) {
+				List<Music> auPlayList = au.getPlayList(); // 타인의 음악을 가져온다.
+				if(auPlayList.size()>0) { // 타인의 음악이 0보다 클 때 실행
+					double jaccard = JaccardSimilarity.jaccardCalcular(myPlayList, auPlayList);
+					auPlayList.removeAll(myPlayList); // 타인의 음악에서 본인의 음악을 배제한다.
+					if(jaccard > 0.0) {
+						if(auPlayList.size()>0) // 타인의 음악이 본인의 음악들 중에서 포함이 안 되어 있다면...
+							graphEdgeList.add(new GraphEdge(user.getId(), au.getId(), Integer.toString((int)(100 * jaccard)), (int)(10 * jaccard), MakeLabel.makeLabel(auPlayList)));
+						else // 타인의 음악이 본인의 음악을 모두 포함한다면
+							graphEdgeList.add(new GraphEdge(user.getId(), au.getId(), Integer.toString((int)(100 * jaccard)), (int)(10 * jaccard), "본인이 포함되거나 같은 음악을 듣습니다."));
+					}
+				}
+			}
+
+			// 2단계. 타인과 타인들의 연결을 매칭시킨다.
+			for(User au1 : anotherUserList) {
+				for(User au2 : anotherUserList) {
+					if(!au1.equals(au2) && (au1.getId() < au2.getId())) { // 타인1과 타인2이 같지 않은 경우에만 실행을 한다. 그리고 상관 관계는 ID의 오름차순만 봐주도록 한다.
+						List<Music> au1PlayList = au1.getPlayList();
+						List<Music> au2PlayList = au2.getPlayList(); // 각 타인1과 타인2의 음악을 가져온다.
+						double jaccard = JaccardSimilarity.jaccardCalcular(au1PlayList, au2PlayList);
+						au2PlayList.removeAll(myPlayList); // 우선은 타인2에서 접속 사용자의 음악을 배제한다.
+						au2PlayList.removeAll(au1PlayList); // 그 다음 타인1의 음악을 배제한다.
+						if(jaccard > 0.0) {
+							if(au2PlayList.size()>0) // 타인2의 음악이 타인1의 음악들 중에서 포함이 안 되어 있다면...
+								graphEdgeList.add(new GraphEdge(au1.getId(), au2.getId(), Integer.toString((int)(100 * jaccard)), (int)(10 * jaccard), MakeLabel.makeLabel(au2PlayList)));
+							else // 타인2의 음악이 타인1의 음악을 모두 포함한다면
+								graphEdgeList.add(new GraphEdge(au1.getId(), au2.getId(), Integer.toString((int)(100 * jaccard)), (int)(10 * jaccard), "타인 끼리 포함되거나 같은 음악을 듣습니다."));
 						}
 					}
 				}
