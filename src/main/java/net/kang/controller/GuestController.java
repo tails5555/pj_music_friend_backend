@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import net.kang.domain.Music;
+import net.kang.getModel.GuestMusicTableRow;
 import net.kang.service.MusicService;
 import net.kang.service.UserService;
 
@@ -16,12 +16,10 @@ import net.kang.service.UserService;
 public class GuestController {
 	@Autowired MusicService musicService;
 	@Autowired UserService userService;
-
-
 	@RequestMapping({"/", "guest/index"})
     public String index(Model model) {
-	 	List<Music> list = musicService.findAll();
-	 	model.addAttribute("list",list);
+	 	List<GuestMusicTableRow> musicList = musicService.getGuestMusicTableRow();
+	 	model.addAttribute("list", musicList);
         return "guest/index";
     }
 
@@ -34,6 +32,4 @@ public class GuestController {
     public String sign() {
         return "guest/sign";
     }
-
-
 }

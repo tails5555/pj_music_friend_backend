@@ -28,6 +28,7 @@ public class MusicService {
 		for(int k=0;k<musicList.size();k++) {
 			GuestMusicTableRow newRow=new GuestMusicTableRow();
 			Music music=musicList.get(k);
+			newRow.setId(music.getId());
 			newRow.setRank(k+1);
 			newRow.setRate((int)(music.getPopulate().getScore()-sd.getAverage()));
 			newRow.setSinger(music.getSinger());
