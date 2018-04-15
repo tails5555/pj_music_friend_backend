@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import net.kang.service.FollowerService;
 import net.kang.service.LinkService;
 import net.kang.service.MusicService;
 import net.kang.service.UserService;
@@ -22,6 +23,7 @@ public class MusicController {
 	@Autowired UserService userService;
 	@Autowired MusicService musicService;
 	@Autowired LinkService linkService;
+	@Autowired FollowerService followerService;
 
 	private String jsonStringFromObject(Object object) throws JsonProcessingException { // 이는 Java에서 쓰인 모든 객체들에 대해서 String JSON으로 반환한다.
         ObjectMapper mapper = new ObjectMapper();
@@ -57,8 +59,28 @@ public class MusicController {
 
     @RequestMapping("friendList")
     public String friendList(Model model) {
-
+    	Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		String userId=authentication.getName();
+		model.addAttribute("followers", followerService.getFollowerComponent(userId));
+		model.addAttribute("followings", followerService.getFollowingComponent(userId));
+		model.addAttribute("recommends", followerService.getRecommendComponent(userId));
         return "friendList/friendList";
+    }
+
+    @RequestMapping("follow")
+    public String follow(Model model, @RequestParam("subUserId") int subUserId) {
+    	Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		String userId=authentication.getName();
+		followerService.following(userId, subUserId);
+		return "redirect:friendList";
+    }
+
+    @RequestMapping("unfollow")
+    public String unfollow(Model model, @RequestParam("subUserId") int subUserId) {
+    	Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		String userId=authentication.getName();
+		followerService.unfollowing(userId, subUserId);
+		return "redirect:friendList";
     }
 
     @RequestMapping("login")
