@@ -19,9 +19,13 @@ import javax.persistence.UniqueConstraint;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
+@EqualsAndHashCode(exclude = {"favorites", "populate", "links"})
+@ToString(exclude = {"favorites", "populate", "links"})
 public class Music {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

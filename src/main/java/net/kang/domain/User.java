@@ -17,9 +17,13 @@ import javax.persistence.UniqueConstraint;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
+@EqualsAndHashCode(exclude = {"playList", "mainUsers"})
+@ToString(exclude = {"playList", "mainUsers"})
 public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -45,5 +49,5 @@ public class User {
 
 	@JsonIgnore
 	@OneToMany(fetch=FetchType.LAZY)
-	List<Follower> followers;
+	List<Follower> mainUsers;
 }

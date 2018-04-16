@@ -26,5 +26,5 @@ public class Populate {
 	Music music;
 
 	@Column(name="musicScore")
-	double score;
+	int score;
 }

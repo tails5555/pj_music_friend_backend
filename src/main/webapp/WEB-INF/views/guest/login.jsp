@@ -9,24 +9,13 @@
 <html>
 <head>
     <title>음악 친구 찾기 </title>
-    
-    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link type="text/css" rel="stylesheet" href="${R}res/login.css"/>
     <link type="text/css" rel="stylesheet" href="${R}res/heart.css"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	
-	
-	
-	
 </head>
-    <style>
-
-    </style>
-
 <body>
-
 <center>
                 <div class="frame">
 
@@ -78,7 +67,7 @@
 						                            <input type="text" name="loginId" placeholder="아이디 입력" style="width:350px; padding:5px; margin-bottom:5px" />
 						                        </div>
 						                        <div align="center">
-						                            <input type="password" name="password" placeholder="비밀번호 입력" style="width:350px; padding:5px;margin-bottom:5px" />
+						                            <input type="password" name="passwd" placeholder="비밀번호 입력" style="width:350px; padding:5px; margin-bottom:5px" />
 						                        </div>
 						                        <div align="center">
 						                        

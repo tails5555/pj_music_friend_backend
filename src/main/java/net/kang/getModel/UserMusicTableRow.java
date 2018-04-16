@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class UserMusicTableRow {
+	int id;
 	int rank;
 	int rate;
 	String title;
