@@ -75,7 +75,7 @@
 						                            <!--4번 프레임 시작-->
 						
 						                                    <div align="center" margin-bottom:10px;>
-						                            <input type="text" name="userid" placeholder="아이디 입력" style="width:350px; padding:5px; margin-bottom:5px" />
+						                            <input type="text" name="loginId" placeholder="아이디 입력" style="width:350px; padding:5px; margin-bottom:5px" />
 						                        </div>
 						                        <div align="center">
 						                            <input type="password" name="password" placeholder="비밀번호 입력" style="width:350px; padding:5px;margin-bottom:5px" />

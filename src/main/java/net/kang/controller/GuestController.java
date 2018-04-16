@@ -36,4 +36,16 @@ public class GuestController {
     }
 
 
+    @RequestMapping("guest/login_processing")
+    public String loginProcessing() {
+        return "guest/index";
+    }
+
+
+    @RequestMapping("guest/login?error")
+    public String loginError() {
+
+        return "guest/login";
+    }
+
 }

@@ -21,13 +21,15 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        String loginId = authentication.getName();
+        String userId = authentication.getName();
         String passwd = authentication.getCredentials().toString();
-        return authenticate(loginId, passwd);
+        return authenticate(userId, passwd);
     }
 
-    public Authentication authenticate(String loginId, String password) throws AuthenticationException {
-        User user = userService.login(loginId, password);
+    public Authentication authenticate(String userId, String password) throws AuthenticationException {
+        User user = userService.login(userId, password);
+        System.out.println("myAuthenticaiton "+user.getUserId());
+
         if (user == null) return null;
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
@@ -36,7 +38,7 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
 
 
         grantedAuthorities.add(new SimpleGrantedAuthority(role));
-        return new MyAuthenticaion(loginId, password, grantedAuthorities, user);
+        return new MyAuthenticaion(userId, password, grantedAuthorities, user);
     }
 
     @Override

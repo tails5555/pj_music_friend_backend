@@ -39,7 +39,7 @@ public class MusicService {
 	}
 
 	public List<UserMusicTableRow> getUserMusicTableRow(String userId){
-		User user = userRepository.findByUserId(userId).orElse(new User());
+		User user = userRepository.findOneByUserId(userId);
 		if(user.equals(new User())) return new ArrayList<UserMusicTableRow>();
 		List<UserMusicTableRow> row = new ArrayList<UserMusicTableRow>();
 		List<Music> musicList=musicRepository.findByOrderByPopulateScoreDesc();
