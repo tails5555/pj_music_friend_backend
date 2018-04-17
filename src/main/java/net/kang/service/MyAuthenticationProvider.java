@@ -28,15 +28,9 @@ public class MyAuthenticationProvider implements AuthenticationProvider {
 
     public Authentication authenticate(String userId, String password) throws AuthenticationException {
         User user = userService.login(userId, password);
-        System.out.println("myAuthenticaiton "+user.getUserId());
-
         if (user == null) return null;
-
         List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
         String role = "ROLE_USER";
-
-
-
         grantedAuthorities.add(new SimpleGrantedAuthority(role));
         return new MyAuthenticaion(userId, password, grantedAuthorities, user);
     }

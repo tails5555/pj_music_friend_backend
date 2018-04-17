@@ -1,144 +1,107 @@
-        body{
-                text-align: center;
+body{
+    text-align: center;
+}
+.frame{
+    height: 600px;
+}
+ul{
+    text-align: center;
+    color: #000;
+    height: 30px;
+    padding-right: 50px;
+}
+li{
+    width: 100px;
+    height: 20px;
+    display: inline-block;
+}
+a{
+    text-decoration: none;
+    color: #a0a09f;
+}
 
+li:hover{
+    transition-duration: 3s;
+    transition-timing-function: ease;
 
-        }
+    background-color: #bada55;
 
-        .frame{
+    position: relative;
+}
 
-            height: 600px;
+button{
+    background-color: #727272;
+    width: 200px;
+    height: 37px;
+    font-size: 15pt;
+    margin-top: 52px;
+    color: #ffffff;
+}
 
-        }
+button:hover{
+    background-color: #cccccc;
+}
 
+.menu{
+	width: 1700px;
+	margin-bottom: 50px;
+	padding-bottom: 50px;
+}
 
+.title{
+    background-color: #ffffff;
+    width: 600px;
+    height: 100px;
+    font-size: 40pt;
+    color: #a0a09f;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: #00FF80;
 
-        ul{
-            text-align: center;
-            color: #000;
-            height: 30px;
-            padding-right: 100px;
+    text-align: center;
+    display: inline-block;
+}
 
-        }
-        li{
-            width: 150px;
-            height: 20px;
-            display: inline-block;
+.container{
+    height: 395px;
+    padding-top: 70px;
+}
 
-        }
+.login{
+    position: relative;
+    right: 300px;
+}
 
-        a{
-            text-decoration: none;
-            color: #a0a09f;
-        }
+.content{
+    width: 1000px;
+    height: 220px;
+    padding-top: 59px;
+}
 
-        li:hover{
-            transition-duration: 3s;
-            transition-timing-function: ease;
+text.head{
+    font-size: 40pt;
+    color: #ffffff;
 
-            background-color: #bada55;
+}
 
-            position: relative;
-        }
+#loginButton{
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+        background: #1ec545;
+        color: #fff;
+        text-shadow: 0 1px rgba(0,0,0,.2);
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 55px\9;
+        cursor: pointer;
+        -webkit-appearance: none;
+}
 
-        button{
-            background-color: #727272;
-            width: 200px;
-            height: 37px;
-            font-size: 15pt;
-            margin-top: 52px;
-            color: #ffffff;
-        }
-
-        button:hover{
-            background-color: #cccccc;
-        }
-
-        .menu{
-            width: 980px;
-            margin-bottom: 50px;
-        }
-
-
-        .title{
-            background-color: #ffffff;
-            width: 600px;
-            height: 100px;
-            font-size: 40pt;
-            color: #a0a09f;
-            padding-left: 60px;
-            padding-right: 60px;
-            color: #00FF80;
-
-            text-align: center;
-            display: inline-block;
-
- 
-        }
-
-
-
-
-
-
-
-        .container{
-
-            height: 395px;
-
-            padding-top: 70px;
-
-
-        }
-
-        .login{
-            position: relative;
-            right: 300px;
-        }
-
-        .content{
-            width: 1000px;
-            height: 220px;
-            padding-top: 59px;
-
-        }
-
-        text.head{
-            font-size: 40pt;
-            color: #ffffff;
-
-        }
-
-        #loginButton{
-
-                width: 100%;
-                height: 100%;
-                border: 0;
-                border-radius: 0;
-                background: #1ec545;
-                color: #fff;
-                text-shadow: 0 1px rgba(0,0,0,.2);
-                font-weight: 700;
-                font-size: 20px;
-                line-height: 55px\9;
-                cursor: pointer;
-                -webkit-appearance: none;
-                
-        }
-
-
-
-        text.text{
-            font-size: 10pt;
-            color: #ffffff;
-        }
-
-            table { border-collapse: collapse; }
-            td { border: 1px  gray; padding: 3px; text-align: center; }
-            td:nth-child(2) { width: 200px; }
-            td:nth-child(3) { width: 170px; }
-            td:nth-child(4) { width: 200px; }
-            td:nth-child(5) { width: 100px; }
-            thead { background-color: #0B173B; color: white; font-weight: bold; }
-            tbody tr:hover { background-color: #A9D0F5; cursor: pointer; }
+text.text{
+    font-size: 10pt;
+    color: #ffffff;
+}
 
 

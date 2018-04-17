@@ -24,9 +24,6 @@
 	<!-- 1번 프레임 시작  -->
 	<div class="menu" style="textalr">
     	<div class="row">
-    	
-    	 <div class="col-md-2">
-            </div>
 			<div class="col-md-2" style="padding-left: 200px; padding-top:30px;  ">
             	<a href="${R}user/index"><img src="/pj_music_friend_backend/resources/img/title.PNG" /></a>
             </div>
