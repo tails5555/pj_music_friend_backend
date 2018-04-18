@@ -20,7 +20,29 @@
 - ReactJS Release : RabbitMQ 스터디 끝나는 시점에서 계속 할 예정.
 
 ## Screen Shot
-- 테스팅이 완료되는 데로 작성할 예정.
+![music_friend_1st_release_screenshot_01](/src/doc/music_friend_1st_release_screenshot_01.png "music_friend_1st_release_screenshot_01")
+
+- 사용자 별로 음악 목록을 관리할 수 있는 MY HEART 기능의 일부입니다.
+- 여기서 하트를 다시 클릭하면 음악 목록을 제할 수 있습니다.
+
+![music_friend_1st_release_screenshot_02](/src/doc/music_friend_1st_release_screenshot_02.png "music_friend_1st_release_screenshot_02")
+
+![music_friend_1st_release_screenshot_03](/src/doc/music_friend_1st_release_screenshot_03.png "music_friend_1st_release_screenshot_03")
+
+- **1인칭 사용자** 시점에서 그린 그래프입니다.
+- 그래프의 진하기에 대해서는 자카드 유사도(Jaccard Similarity)를 이용해서 사용자 간의 음악 목록의 유사도에 대해서 측정을 하여 표기를 1부터 10까지 측정하여 계산을 하도록 만들었습니다.
+- 그리고 본인과 타인의 음악 관계 뿐만 아니라 타인과 타인의 음악 관계에 대해서도 인식할 수 있도록 구상을 하였으며 이를 통해 현재 사용자가 들어 보지 못한 음악에 대해서 접근을 가까이 할 수 있도록 구성을 했습니다.
+
+![music_friend_1st_release_screenshot_04](/src/doc/music_friend_1st_release_screenshot_04.png "music_friend_1st_release_screenshot_04")
+
+- 그리고 친구 Follow 기능을 추가하여 실시간으로 친구와의 관계를 관리를 할 수 있도록 구성을 하였습니다.
+- Follower는 현재 따르는 친구, Following은 본인이 따르고 있는 친구로 이해할 수 있습니다.
+- 그리고 친구 추천에서는 현재 Follower들에 대해서는 파란 음영으로 구분을 하기 쉽게 표기를 하였으며, 정렬 기준은 현재 본인이 듣는 음악 목록과 유형이 비슷한 친구들로 정렬을 하였습니다.
+
+![music_friend_1st_release_screenshot_05](/src/doc/music_friend_1st_release_screenshot_04.png "music_friend_1st_release_screenshot_05")
+
+- Main Page에서는 실시간으로 올라오는 음악들에 대해 좋아요 버튼을 반영해서 저장을 할 수 있도록 간단한 조작감이 있는 UI로 구상을 하였습니다.
+- 그리고 변동 수치에 대해서는 추후에 통계적인 개념을 기반으로 재측정하여 실시간 음악 순위들에 대해 변화도를 추가하여 인기 챠트를 한 눈에 알아보기 쉽게 구상할 예정입니다.
 
 ## Thanks To
 - **열심히 소스 코드를 구상을 해 준 모든 참여자들**
