@@ -39,7 +39,7 @@
 - Follower는 현재 따르는 친구, Following은 본인이 따르고 있는 친구로 이해할 수 있습니다.
 - 그리고 친구 추천에서는 현재 Follower들에 대해서는 파란 음영으로 구분을 하기 쉽게 표기를 하였으며, 정렬 기준은 현재 본인이 듣는 음악 목록과 유형이 비슷한 친구들로 정렬을 하였습니다.
 
-![music_friend_1st_release_screenshot_05](/src/doc/music_friend_1st_release_screenshot_04.png "music_friend_1st_release_screenshot_05")
+![music_friend_1st_release_screenshot_05](/src/doc/music_friend_1st_release_screenshot_05.png "music_friend_1st_release_screenshot_05")
 
 - Main Page에서는 실시간으로 올라오는 음악들에 대해 좋아요 버튼을 반영해서 저장을 할 수 있도록 간단한 조작감이 있는 UI로 구상을 하였습니다.
 - 그리고 변동 수치에 대해서는 추후에 통계적인 개념을 기반으로 재측정하여 실시간 음악 순위들에 대해 변화도를 추가하여 인기 챠트를 한 눈에 알아보기 쉽게 구상할 예정입니다.
