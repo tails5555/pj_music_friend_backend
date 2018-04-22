@@ -19,6 +19,24 @@
 - JSP Second Release : 정보처리기사 필기 끝나는 시점에서 추가할 예정.
 - ReactJS Release : RabbitMQ 스터디 끝나는 시점에서 계속 할 예정.
 
+## application.properties 설정
+- src > main > resources > application.properties에 현존하는 설정을 아래와 같은 방식으로 작성해서 이용하시면 됩니다.
+
+```
+spring.mvc.view.prefix=[MVC에서 View 위치에 대한 설정]
+spring.mvc.view.suffix=[MVC에서 View 확장자 설정]
+spring.datasource.driver-class-name=[JDBC 이용 클래스 이름 입력]
+spring.datasource.url=[JDBC와 연동하기 위한 URL]
+spring.datasource.username=[DB 사용자 이름]
+spring.datasource.password=[DB 사용자 비밀번호]
+<--! Hibernate JPA를 적용하기 위한 설정 -->
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+<--! Hibernate JPA에 대해 SQL 결과를 인지하기 위한 문장. Debug를 통해 일일히 확인 시킨다. --> 
+logging.level.org.hibernate.SQL=DEBUG
+<--! Hibernate JPA에 대해서 SQL의 기본 문장에 대해 TRACE 단계를 통해 확인을 시켜준다. -->
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+```
+
 ## Screen Shot
 ![music_friend_1st_release_screenshot_01](/src/doc/music_friend_1st_release_screenshot_01.png "music_friend_1st_release_screenshot_01")
 
